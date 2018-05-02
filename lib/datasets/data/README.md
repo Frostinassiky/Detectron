@@ -100,3 +100,5 @@ ln -s /path/to/cityscapes/root $DETECTRON/lib/datasets/data/cityscapes/raw
 ### Cityscapes Annotations in COCO Format
 
 We expect Cityscapes annotations converted to COCO json format, which we will make available for download soon.
+
+## Creating Symlinks for Caltech style Pedestrian Dataset
