@@ -185,5 +185,30 @@ DATASETS = {
             _DATA_DIR + '/VOC2012/annotations/voc_2012_trainval.json',
         DEVKIT_DIR:
             _DATA_DIR + '/VOC2012/VOCdevkit2012'
+    },
+    'caltech_train': {
+        IM_DIR:
+            _DATA_DIR + '/caltech/JPGImages',
+        ANN_FN:
+            _DATA_DIR + '/caltech/annotations/caltech_train.json',
+        DEVKIT_DIR:
+            _DATA_DIR + '/caltech/code3.2.1'
+    },
+    'caltech_val': {
+        IM_DIR:
+            _DATA_DIR + '/caltech/JPGImages',
+        ANN_FN:
+            _DATA_DIR + '/caltech/annotations/caltech_val.json',
+        DEVKIT_DIR:
+            _DATA_DIR + '/caltech/code3.2.1'
+    },
+    'caltech_test': {
+        IM_DIR:
+            _DATA_DIR + '/caltech/JPGImages',
+        ANN_FN:
+            _DATA_DIR + '/caltech/annotations/caltech_test.json',
+        DEVKIT_DIR:
+            _DATA_DIR + '/caltech/code3.2.1'
     }
+
 }
