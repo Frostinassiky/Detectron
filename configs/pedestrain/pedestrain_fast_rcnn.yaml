@@ -1,0 +1,33 @@
+MODEL:
+  TYPE: generalized_rcnn
+  CONV_BODY: ResNet.add_ResNet50_conv4_body
+  NUM_CLASSES: 2
+NUM_GPUS: 1
+SOLVER:
+  WEIGHT_DECAY: 0.0001
+  LR_POLICY: steps_with_decay
+  BASE_LR: 0.02
+  GAMMA: 0.1
+  MAX_ITER: 180000
+  STEPS: [0, 100000, 120000]
+FAST_RCNN:
+  ROI_BOX_HEAD: fast_rcnn_heads.add_roi_2mlp_head
+  ROI_XFORM_METHOD: RoIAlign
+  ROI_XFORM_RESOLUTION: 7
+  ROI_XFORM_SAMPLING_RATIO: 2
+TRAIN:
+  WEIGHTS: pretrained/R-50.pkl
+  DATASETS: ('caltech_train',)
+  PROPOSAL_FILES: ('external/caltech_rpn_train/rpn_proposals.pkl',)
+  SCALES: (800,)
+  MAX_SIZE: 1333
+  BATCH_SIZE_PER_IM: 60
+TEST:
+  WEIGHTS: detectron-output/train/caltech_test/generalized_rcnn/model_final.pkl
+  DATASETS: ('caltech_test',)
+  PROPOSAL_FILES: ('external/caltech_rpn_test/rpn_proposals.pkl',)
+  PROPOSAL_LIMIT: 1000
+  SCALE: 800
+  MAX_SIZE: 1333
+  NMS: 0.5
+OUTPUT_DIR: .
